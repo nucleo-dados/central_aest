@@ -30,20 +30,23 @@ PAGES_CONFIG = {
         "Briefings de País": {"path": "pages/1_Análise_por_País.py", "icon": "🌎"},
         "Briefings de Município": {"path": "pages/2_Análise_por_Município.py", "icon": "🏙️"},
         "Briefings de Produto": {"path": "pages/3_Análise_por_Produto.py", "icon": "📦"},
-        "Exportador Power BI": {"path": "pages/5_Exportador_Power_BI.py", "icon": "📊"}
-        },
+        "Exportador Power BI": {"path": "pages/5_Exportador_Power_BI.py", "icon": "📊"},
+        # --- NOVO ITEM (Apenas para ADMIN/AEST) ---
+        "Briefings de Investimento": {"path": "pages/6_Briefing_Investimentos.py", "icon": "💰"}
+    },
     "dipex": {
         "Briefings de País": {"path": "pages/1_Análise_por_País.py", "icon": "🌎"},
         "Briefings de Município": {"path": "pages/2_Análise_por_Município.py", "icon": "🏙️"},
         "Briefings de Produto": {"path": "pages/3_Análise_por_Produto.py", "icon": "📦"},
-        },
+    },
     "ascom":{
         "Exportador Power BI": {"path": "pages/5_Exportador_Power_BI.py", "icon": "📊"}
-        },
+    },
     "asri":{
         "Exportador Power BI": {"path": "pages/5_Exportador_Power_BI.py", "icon": "📊"}
-        }
+    }
 }
+
 def check_login(username, password):
     if username in USERS and USERS[username]["password"] == password:
         st.session_state.logged_in = True
@@ -78,7 +81,7 @@ def draw_sidebar():
                 st.page_link(page_info["path"], label=page_name, icon=page_info["icon"])
             
             st.divider()
-            # --- CORREÇÃO DO ERRO AQUI (Adicionado key unique) ---
+            
             if st.button("Sair (Logout)", key="logout_sidebar_btn"):
                 logout()
         else:
