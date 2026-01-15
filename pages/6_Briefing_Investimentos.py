@@ -194,8 +194,8 @@ MAPA_COLUNAS = {
 }
 
 def baixar_base_sharepoint():
-    auth_file = "auth_sharepoint.json"
-    if not os.path.exists(auth_file): return False, "Arquivo 'auth_sharepoint.json' ausente na raiz."
+    auth_file = "auth.json"
+    if not os.path.exists(auth_file): return False, "Arquivo 'auth.json' ausente na raiz."
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
